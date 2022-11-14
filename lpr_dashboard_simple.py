@@ -308,10 +308,10 @@ layout_jumlah_ganjil_genap = html.Div([
 
 
 server = Flask(__name__)
- app = dash.Dash(__name__, server=server)
+app = dash.Dash(__name__, server=server)
 
- app.scripts.config.serve_locally = True
- app.config['suppress_callback_exceptions'] = True
+app.scripts.config.serve_locally = True
+app.config['suppress_callback_exceptions'] = True
 
 app.layout = html.Div([
     dcc.Tabs([
