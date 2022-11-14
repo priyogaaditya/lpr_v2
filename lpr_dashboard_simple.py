@@ -328,30 +328,30 @@ app.layout = html.Div([
 ])
 
 # # ========================================= callbacks for tab 1 (jumlah type kendaraan )=============================================
-# @app.callback(Output("vehicle_type_store_inputs", "data"),
-#     [Input('vehicle_type_year', 'value'),
-#     Input("vehicle_type_month_start", "value"),
-#     Input("vehicle_type_month_stop", "value"),
-#     Input("vehicle_type_date_start", "value"),
-#     Input("vehicle_type_date_stop", "value"),
-#     Input("vehicle_type_hour_start", "value"),
-#     Input("vehicle_type_hour_stop", "value")])
+@app.callback(Output("vehicle_type_store_inputs", "data"),
+    [Input('vehicle_type_year', 'value'),
+    Input("vehicle_type_month_start", "value"),
+    Input("vehicle_type_month_stop", "value"),
+    Input("vehicle_type_date_start", "value"),
+    Input("vehicle_type_date_stop", "value"),
+    Input("vehicle_type_hour_start", "value"),
+    Input("vehicle_type_hour_stop", "value")])
 
-# def store_inputs(year, month_start, month_stop, date_start, date_stop, hour_start, hour_stop):
-#     features_str = [year, month_start, month_stop, date_start, date_stop, hour_start, hour_stop]
-#     if len(features_str) == 7 and None not in features_str and '' not in features_str:
-#         return {'year':year, 
-#             'month_start':month_start, 
-#             'month_stop': month_stop, 
-#             'date_start':date_start, 
-#             'date_stop':date_stop, 
-#             'hour_start':hour_start, 
-#             'hour_stop':hour_stop}
+def store_inputs(year, month_start, month_stop, date_start, date_stop, hour_start, hour_stop):
+    features_str = [year, month_start, month_stop, date_start, date_stop, hour_start, hour_stop]
+    if len(features_str) == 7 and None not in features_str and '' not in features_str:
+        return {'year':year, 
+            'month_start':month_start, 
+            'month_stop': month_stop, 
+            'date_start':date_start, 
+            'date_stop':date_stop, 
+            'hour_start':hour_start, 
+            'hour_stop':hour_stop}
     
-# @app.callback(Output('vehicle-type-output-container', 'children'), 
-#                 [Input('vehicle_type_submit_button', 'n_clicks'),
-#                 Input('vehicle-type-dropdown', 'value')],
-#                 State('vehicle_type_store_inputs', 'data'))
+@app.callback(Output('vehicle-type-output-container', 'children'), 
+                [Input('vehicle_type_submit_button', 'n_clicks'),
+                Input('vehicle-type-dropdown', 'value')],
+                State('vehicle_type_store_inputs', 'data'))
 
 def update_vehicle_type(n_click, dropdown_value_option, stored_inputs):
     trigger = [p['prop_id'] for p in dash.callback_context.triggered][0]
