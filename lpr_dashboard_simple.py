@@ -307,25 +307,25 @@ layout_jumlah_ganjil_genap = html.Div([
 # ])
 
 
- server = Flask(__name__)
+server = Flask(__name__)
  app = dash.Dash(__name__, server=server)
 
  app.scripts.config.serve_locally = True
  app.config['suppress_callback_exceptions'] = True
 
-# app.layout = html.Div([
-#     dcc.Tabs([
-#         dcc.Tab(label='Jumlah Jenis Kendaraan', children=[
-#             layout_jumlah_tipe_kendaraan,
-#         ]),
-#         dcc.Tab(label='Jumlah Ganjil Genap ', children=[
-#             layout_jumlah_ganjil_genap,
-#         ]),
-#         dcc.Tab(label='Jumlah Origin Area', children=[
-#             layout_jumlah_origin_area,
-#         ])
-#     ])
-# ])
+app.layout = html.Div([
+    dcc.Tabs([
+        dcc.Tab(label='Jumlah Jenis Kendaraan', children=[
+            layout_jumlah_tipe_kendaraan,
+        ]),
+        dcc.Tab(label='Jumlah Ganjil Genap ', children=[
+            layout_jumlah_ganjil_genap,
+        ])
+        # dcc.Tab(label='Jumlah Origin Area', children=[
+        #     layout_jumlah_origin_area,
+        # ])
+    ])
+])
 
 # # ========================================= callbacks for tab 1 (jumlah type kendaraan )=============================================
 # @app.callback(Output("vehicle_type_store_inputs", "data"),
