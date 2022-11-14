@@ -307,11 +307,11 @@ layout_jumlah_ganjil_genap = html.Div([
 # ])
 
 
-# server = Flask(__name__)
-# app = dash.Dash(__name__, server=server)
+ server = Flask(__name__)
+ app = dash.Dash(__name__, server=server)
 
-# app.scripts.config.serve_locally = True
-# app.config['suppress_callback_exceptions'] = True
+ app.scripts.config.serve_locally = True
+ app.config['suppress_callback_exceptions'] = True
 
 # app.layout = html.Div([
 #     dcc.Tabs([
@@ -814,4 +814,4 @@ def update_ganjil_genap(n_click, dropdown_value_option, stored_inputs):
 #             return dash.no_update
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port-8080)
+    app.run_server(debug=True)
