@@ -24,6 +24,8 @@ class DBconfig:
 
 def define_ganjil_genap(license_plate):
     number = re.findall('[0-9]', license_plate)
+    if(license_plate=="UNKNOWN"):
+        return ''
     if int(number[-1]) % 2 == 0:
         return 'GENAP'
     if int(number[-1]) % 2 == 1:
