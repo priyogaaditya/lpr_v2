@@ -24,12 +24,12 @@ class DBconfig:
 
 def define_ganjil_genap(license_plate):
     number = re.findall('[0-9]', license_plate)
-    if(license_plate=="UNKNOWN"):
-        return ''
-    if int(number[-1]) % 2 == 0:
-        return 'GENAP'
-    if int(number[-1]) % 2 == 1:
-        return 'GANJIL'
+    if(license_plate!="UNKNOWN"):
+        if int(number[-1]) % 2 == 0:
+            return 'GENAP'
+        if int(number[-1]) % 2 == 1:
+            return 'GANJIL'
+    return ''
     
 # origin_map = {
 #     'ABC': 'Jakarta Selatan',
@@ -816,4 +816,4 @@ def update_ganjil_genap(n_click, dropdown_value_option, stored_inputs):
 #             return dash.no_update
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(host='0.0.0.0',port=8080)
